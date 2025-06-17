@@ -40,8 +40,40 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 3. Include a screenshot of your MongoDB database
 4. Update the README.md with your specific setup instructions
 
+## Project Overview
+
+This project demonstrates basic MongoDB operations using Node.js. It consists of two main scripts:
+
+- `insert_books.js`: This script connects to a local MongoDB instance and populates the `plp_bookstore` database's `books` collection with sample book data. Running this script will insert a predefined set of books into the database, dropping the collection first if it already exists.
+
+- `queries.js`: This script contains asynchronous functions that connect to the same MongoDB database and perform various queries on the `books` collection. These queries include:
+  1. Finding all books
+  2. Finding books by a specific author
+  3. Finding books published after a certain year
+  4. Finding books in a specific genre
+  5. Finding books that are currently in stock
+
+### How to Use
+
+1. Ensure MongoDB is running locally or update the connection URI in `insert_books.js` and `queries.js` if using a remote database.
+
+2. Run `insert_books.js` to populate the database with sample data:
+   ```
+   node insert_books.js
+   ```
+
+3. Use the functions in `queries.js` to perform queries. You can import and call these functions in your own scripts or modify `queries.js` to run them directly. For example:
+   ```js
+   const { findAllBooks, findBooksByAuthor } = require('./queries');
+
+   findAllBooks();
+   findBooksByAuthor('George Orwell');
+   ```
+
+4. Each function connects to the database, performs the query, logs the results to the console, and closes the connection.
+
 ## Resources
 
 - [MongoDB Documentation](https://docs.mongodb.com/)
 - [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/)
